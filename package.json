@@ -9,11 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/nextjs-registry": "^1.0.1",
+    "@hookform/resolvers": "^3.9.0",
+    "antd": "^5.20.1",
+    "axios": "^1.7.3",
+    "leaflet": "^1.9.4",
+    "mongoose": "^8.5.2",
     "next": "14.2.5",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-hook-form": "^7.52.2",
+    "react-icons": "^5.2.1",
+    "react-leaflet": "^4.2.1",
+    "react-type-animation": "^3.2.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/leaflet": "^1.9.12",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

@@ -36,12 +36,6 @@ body::-webkit-scrollbar-thumb {
   border-radius: 3px;
 }
 
-/* @supports not selector(::-webkit-scrollbar) {
-  body {
-    scrollbar-color: var(--color-gold) var(--color-white);
-  }
-} */
-
 * {
   margin: 0;
   padding: 0;
@@ -55,6 +49,8 @@ body {
 
 a {
   width: fit-content;
+  text-decoration: none;
+  color: transparent;
 }
 
 input,
@@ -85,4 +81,8 @@ button > .btn {
 
 .ant-pagination-item {
   padding-right: 5px !important;
+}
+
+.ant-layout-footer {
+  padding: 0 !important;
 }
