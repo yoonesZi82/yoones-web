@@ -3,31 +3,86 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --normal-black: #111111;
+  --white: #ffffff;
+  --melo-white: #faf4f0;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
   }
+}
+
+html {
+  font-size: 62.5%;
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+body::-webkit-scrollbar-track {
+  background: var(--melo-white);
+  border-radius: 3px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--normal-black);
+  border-radius: 3px;
+}
+
+/* @supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--color-gold) var(--color-white);
+  }
+} */
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: var(--font-vazir);
+  overflow-x: hidden;
+  background-color: var(--melo-white);
+}
+
+a {
+  width: fit-content;
+}
+
+input,
+textarea {
+  text-indent: 10px;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .fix-nav {
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    animation: fadeInDownBig 0.4s ease;
+    left: 0;
+    width: 100%;
+    top: 0;
+    background: none;
+    z-index: 999;
   }
+}
+
+.ant-menu-sub {
+  background: var(--normal-black) !important;
+}
+
+button > .btn {
+  padding: 20px 15px 20px 20px !important;
+}
+
+.ant-pagination-item {
+  padding-right: 5px !important;
 }
