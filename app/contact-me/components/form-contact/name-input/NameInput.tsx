@@ -10,7 +10,7 @@ function NameInput({ control, error }: InputPropsType) {
         name="name"
         control={control}
         render={({ field }) => (
-          <Input size="large" placeholder="نام*" {...field} />
+          <Input size="large" placeholder="Name *" {...field} />
         )}
       />
       {error && (

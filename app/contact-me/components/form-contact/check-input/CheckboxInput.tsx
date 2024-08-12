@@ -16,7 +16,7 @@ function CheckboxInput({ control, error }: InputPropsType) {
             className="text-meloWhite"
           >
             {" "}
-            ذخیره اسم و شماره موبایل برایه ارسال پیام بعدی
+            Save the name and mobile number for sending the next message{" "}
           </Checkbox>
         )}
       />

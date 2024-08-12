@@ -8,12 +8,15 @@ function ShortAboutMe() {
       <div>
         <p className="font-medium text-3xl text-normalBlack">
           {" "}
-          برای ارتباط با من کافیه رویه دکمه زیر کلیک کنید 👇
+          To contact me, just click on the button below 👇
         </p>
       </div>
       <div>
         <Link href="/contact-me">
-          <Button> تماس با من</Button>
+          <Button className="flex-row-reverse bg-meloWhite hover:bg-normalBlack shadow-[10px_10px_10px_#babecc,-10px_-10px_20px_#ffffff] py-[14px] border-none rounded-lg h-[44px] font-medium text-2xl hover:text-meloWhite transition-colors duration-500 btn">
+            {" "}
+            Contact Me{" "}
+          </Button>
         </Link>
       </div>
     </div>

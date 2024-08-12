@@ -10,7 +10,7 @@ function PhoneInput({ control, error }: InputPropsType) {
         name="phone"
         control={control}
         render={({ field }) => (
-          <Input size="large" placeholder="تلفن همراه*" {...field} />
+          <Input size="large" placeholder="Phone Number *" {...field} />
         )}
       />
       {error && (

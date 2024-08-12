@@ -20,7 +20,7 @@ function LatestProjects() {
   }, []);
   return (
     <LatestCart
-      title="پروژه ها"
+      title="Projects"
       cartData={data}
       error={error}
       loading={loading}

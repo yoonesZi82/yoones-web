@@ -39,7 +39,7 @@ function Skill() {
   return (
     <>
       <LatestSkill
-        title="مهارت های من"
+        title="My Skills"
         cartData={paginatedData}
         error={error}
         loading={loading}

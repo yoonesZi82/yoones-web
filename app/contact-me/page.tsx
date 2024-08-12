@@ -26,7 +26,7 @@ function page() {
       </div>
       <div className="flex flex-col justify-start items-start gap-5 p-5">
         <div className="flex justify-between items-center w-full">
-          <h1 className="text-5xl text-dark-blue-color"> تماس با ما </h1>
+          <h1 className="text-5xl text-dark-blue-color">Contact Me</h1>
         </div>
         <hr className="border-2 border-normalBlack border-solid w-full" />
       </div>

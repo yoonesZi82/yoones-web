@@ -38,7 +38,7 @@ const LatestCart: React.FC<LatestProps> = ({
           <div className="flex justify-center items-center w-full">
             <h1 className="font-medium text-4xl text-red">{error}</h1>
           </div>
-        ) : title === "پروژه ها" ? (
+        ) : title === "Projects" ? (
           cartData.map((cart) => (
             <div className="flex justify-center items-center">
               <GlobalCart
@@ -52,7 +52,7 @@ const LatestCart: React.FC<LatestProps> = ({
               />
             </div>
           ))
-        ) : title === "وبلاگ ها" ? (
+        ) : title === "Blogs" ? (
           cartData.map((cart) => (
             <div className="flex justify-center items-center">
               <GlobalCart

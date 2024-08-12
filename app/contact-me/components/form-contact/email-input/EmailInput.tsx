@@ -10,7 +10,7 @@ function EmailInput({ control, error }: InputPropsType) {
         name="email"
         control={control}
         render={({ field }) => (
-          <Input size="large" placeholder="ایمیل*" {...field} />
+          <Input size="large" placeholder="Email *" {...field} />
         )}
       />
       {error && (

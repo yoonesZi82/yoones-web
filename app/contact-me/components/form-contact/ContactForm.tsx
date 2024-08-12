@@ -96,12 +96,14 @@ const ContactForm: React.FC = () => {
         <div className="flex flex-col justify-start items-start gap-4">
           <h1 className="font-medium text-5xl text-dark-blue-color">
             {" "}
-            من چگونه میتوانم به شما کمک کنم؟
+            How can I help you?{" "}
           </h1>
           <p className="text-right mt-4 max-w-[95%] font-medium text-3xl text-normal-blue">
-            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-            استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
-            ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
+            Lorem Epsom fake text with the production of incomprehensible
+            simplicity from the printing industry and with The use of graphic
+            designers is printers and texts, but also newspapers and magazines
+            Columns and rows as necessary and for the current conditions of the
+            technology required{" "}
           </p>
           <div className="flex flex-col justify-start items-start gap-8 mt-6">
             <div className="flex justify-start items-center gap-4">
@@ -109,10 +111,12 @@ const ContactForm: React.FC = () => {
                 <PiMapPin size={25} color="#ecf6fa" />
               </div>
               <div className="flex flex-col justify-start items-start gap-2">
-                <h1 className="font-medium text-3xl text-normalBlack">ادرس</h1>
+                <h1 className="font-medium text-3xl text-normalBlack">
+                  Address
+                </h1>
                 <p className="font-medium text-[#333] text-2xl">
-                  اصفهان,اصفهان,خیابان امام خمینی,خیابان شریف شرقی,کوچه 47,کوچه
-                  شهید ابنیلی,کوچه 4,مجتمع اسماعیلی ,واحد 4
+                  Isfahan, Isfahan, Imam Khomeini St., East Sharif St., Alley
+                  47, Alley Shahid Ibnili, 4 Alley, Esmaili Complex, Unit 4{" "}
                 </p>
               </div>
             </div>
@@ -122,7 +126,7 @@ const ContactForm: React.FC = () => {
               </div>
               <div className="flex flex-col justify-start items-start gap-2">
                 <h1 className="font-medium text-3xl text-normalBlack">
-                  شماره تماس
+                  Phone{" "}
                 </h1>
                 <p className="font-medium text-[#333] text-2xl">09912209730</p>
               </div>
@@ -132,7 +136,7 @@ const ContactForm: React.FC = () => {
                 <PiEnvelope size={25} color="#ecf6fa" />
               </div>
               <div className="flex flex-col justify-start items-start gap-2">
-                <h1 className="font-medium text-3xl text-normalBlack">ایمیل</h1>
+                <h1 className="font-medium text-3xl text-normalBlack">Emial</h1>
                 <p className="font-medium text-[#333] text-2xl">
                   yoones.zamani8082@yahoo.com
                 </p>
@@ -141,11 +145,9 @@ const ContactForm: React.FC = () => {
           </div>
         </div>
         <div className="flex flex-col justify-start items-center desktop:items-start laptop:items-center mobile:items-center tablet:items-start gap-5 bg-[#333] p-16 border border-solid rounded-xl w-full h-full">
-          <h1 className="font-medium text-5xl text-meloWhite">
-            به من پیام دهید
-          </h1>
+          <h1 className="font-medium text-5xl text-meloWhite">Text Me</h1>
           <p className="font-medium text-2xl text-meloWhite">
-            ایمیل شما منتشر نمیشود , تمامی فیلد ها را پر کنید
+            Your email will not be published, fill all the fields{" "}
           </p>
           <form
             className="flex flex-col gap-8"

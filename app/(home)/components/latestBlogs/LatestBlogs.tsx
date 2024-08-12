@@ -19,12 +19,7 @@ function LatestBlogs() {
       .finally(() => setLoading(false));
   }, []);
   return (
-    <LatestCart
-      title="وبلاگ ها"
-      cartData={data}
-      error={error}
-      loading={loading}
-    />
+    <LatestCart title="Blogs" cartData={data} error={error} loading={loading} />
   );
 }
 

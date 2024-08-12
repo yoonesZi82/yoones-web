@@ -12,10 +12,9 @@ const ButtonForm = ({ loading }: FormBtnPropsTypes) => {
         size="large"
         icon={<PiPaperPlaneTilt size={20} />}
         loading={loading}
-        className="flex flex-row-reverse justify-center items-center bg-color-gold py-4 border-none w-full text-3xl text-color-white transition-all duration-500 send_btn_form"
+        className="flex flex-row-reverse justify-center items-center bg-meloWhite hover:bg-gray-200 py-4 border-none w-full text-3xl text-color-white text-normalBlack hover:text-normalBlack transition-all duration-500 send_btn_form"
       >
-        {" "}
-        ارسال{" "}
+        Send
       </Button>
     </div>
   );

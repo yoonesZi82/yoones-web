@@ -43,7 +43,7 @@ function page() {
         <BreadCrumb />
       </div>
       <LatestCart
-        title="پروژه ها"
+        title="Projects"
         cartData={paginatedData}
         error={error}
         loading={loading}

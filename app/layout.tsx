@@ -2,9 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Vazirmatn } from "next/font/google";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
-// import Footer from "@/components/footer/Footer";
 import ThemeProvider from "@/theme/themeProvider";
-import Navbar from "@/components/navbar/Nav";
 import LayoutPage from "@/components/mainLayout/Layout";
 import connectToDB from "@/config/db";
 

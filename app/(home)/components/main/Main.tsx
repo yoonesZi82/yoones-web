@@ -7,25 +7,12 @@ import { PiLaptop } from "react-icons/pi";
 import { TypeAnimation } from "react-type-animation";
 
 function Main() {
-  const [html, setHtml] = useState<null | string>("rtl");
-  const [descriptionFaMe, setDescription] =
-    useState<string>(`من یونس قلعه رنانی هستم متخصص حوضه قرانت اند میباشم متولد سال 1382
-    هستم و نزدیک به سه سال پیاپی دنبال کسب تجربه بیشتر و اپدیت نگه داشتن
-    خودم هستم در حال حاضر میتونم به خودم لقب سنیور را در ای حوضه به خودم
-    دهم و از تاپ ترین مهارت هایه من next js , react است که به کمک ان
-    میتوانم سایت هایه جذابی به دلخواه خودتون برایه شما بسازم✌️
-`);
-  const [descriptionEnMe, setDescriptionEnMe] = useState<string>(
-    `
-My name is Younes Ghaleh Renani, I am a specialist in the Qur'an and basin, I was born in 2013 and I have been seeking to gain more experience and keep myself updated for nearly three years. My next js is react, with the help of which I can create attractive sites for you according to your wishes ✌️`
-  );
-
-  useEffect(() => {
-    const htmlElement = document.querySelector("html");
-    if (htmlElement) {
-      setHtml(htmlElement.dir);
-    }
-  }, [html]);
+  const [descriptionEnMe, setDescription] =
+    useState<string>(`My name is Younes Ghaleh Renani, I am a specialist in the Qur'an and basin, born in 1382
+    I am looking for more experience and updates for nearly three consecutive years
+    I am myself, now I can call myself a senior in this basin
+    The tenth and one of my top skills is next js, react, with the help of it
+    I can make attractive sites for you according to your wishes✌️`);
 
   return (
     <div className="flex desktop:flex-row laptop:flex-row flex-col mobile:flex-col tablet:flex-col items-center gap-10 w-full">
@@ -41,10 +28,7 @@ My name is Younes Ghaleh Renani, I am a specialist in the Qur'an and basin, I wa
       <div className="desktop:w-[60%] laptop:w-[60%] flex flex-col justify-center items-center gap-7 w-[55%] mobile:w-[55%] tablet:w-[60%]">
         <div>
           <TypeAnimation
-            sequence={[
-              html === "rtl" ? descriptionFaMe : descriptionEnMe,
-              1000,
-            ]}
+            sequence={[descriptionEnMe, 1000]}
             wrapper="p"
             speed={75}
             className="font-medium text-3xl text-center leading-[25px]"
@@ -55,9 +39,9 @@ My name is Younes Ghaleh Renani, I am a specialist in the Qur'an and basin, I wa
           <Link href="/about-me">
             <Button
               icon={<PiLaptop size={20} />}
-              className="flex flex-row-reverse justify-center items-center bg-meloWhite hover:bg-normalBlack shadow-[0_0_12px_0_rgba(0,0,0,0.58)] border-none rounded-lg font-medium text-2xl text-normalBlack hover:text-meloWhite transition-colors duration-500"
+              className="flex-row-reverse bg-meloWhite hover:bg-normalBlack shadow-[10px_10px_10px_#babecc,-10px_-10px_20px_#ffffff] py-[14px] border-none rounded-lg h-[44px] font-medium text-2xl hover:text-meloWhite transition-colors duration-500 btn"
             >
-              مشاهده بیشتر
+              View more{" "}
             </Button>
           </Link>
         </div>

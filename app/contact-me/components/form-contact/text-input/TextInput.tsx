@@ -13,7 +13,7 @@ function TextInput({ control, error }: InputPropsType) {
         render={({ field }) => (
           <TextArea
             autoSize={{ minRows: 3, maxRows: 4 }}
-            placeholder="پیام*"
+            placeholder="Text *"
             {...field}
           />
         )}

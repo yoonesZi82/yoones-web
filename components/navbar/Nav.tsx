@@ -20,27 +20,27 @@ type MenuItem = Required<MenuProps>["items"][number];
 const items: MenuItem[] = [
   {
     key: "home",
-    label: <Link href="/">صفحه اصلی</Link>,
+    label: <Link href="/">Home</Link>,
     icon: <PiHouseLineBold size={18} />,
   },
   {
     key: "projects",
-    label: <Link href="/projects"> پروژه ها</Link>,
+    label: <Link href="/projects">Projects</Link>,
     icon: <PiArticle size={18} />,
   },
   {
     key: "blogs",
-    label: <Link href="/blogs"> وبلاگ ها</Link>,
+    label: <Link href="/blogs">Blogs</Link>,
     icon: <PiArticle size={18} />,
   },
   {
     key: "about-us",
-    label: <Link href="/about-me"> درباره من </Link>,
+    label: <Link href="/about-me">About Me</Link>,
     icon: <PiInfoBold size={18} />,
   },
   {
     key: "contact-us",
-    label: <Link href="/contact-me"> تماس با من</Link>,
+    label: <Link href="/contact-me">Contact Me</Link>,
     icon: <PiPhoneCallBold size={18} />,
   },
 ];

@@ -1,6 +1,6 @@
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { ConfigProvider } from "antd";
-import Fa from "antd/locale/fa_IR";
+import En from "antd/locale/en_US";
 import React from "react";
 
 interface ThemeProviderProps {
@@ -10,8 +10,8 @@ interface ThemeProviderProps {
 const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   return (
     <ConfigProvider
-      direction="rtl"
-      locale={Fa}
+      direction="ltr"
+      locale={En}
       theme={{
         components: {
           Menu: {

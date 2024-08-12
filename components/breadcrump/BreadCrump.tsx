@@ -26,14 +26,14 @@ const BreadCrumb: React.FC = () => {
             <Link href={`${arrayPath[1]}`}>
               {" "}
               {arrayPath[1] === "projects"
-                ? "پروژه ها"
+                ? "Projects"
                 : arrayPath[1] === "blogs"
-                ? "وبلاگ ها"
+                ? "Blogs"
                 : arrayPath[1] === "about-me"
-                ? "درباره ما"
+                ? "About Me"
                 : arrayPath[1] === "contact-me"
-                ? "تماس با ما"
-                : "جزیات وبلاگ"}
+                ? "Contact Me"
+                : "Details"}
             </Link>
           ),
         },
