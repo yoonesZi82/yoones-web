@@ -79,10 +79,75 @@ button > .btn {
   padding: 20px 15px 20px 20px !important;
 }
 
-.ant-pagination-item {
-  padding-right: 5px !important;
-}
-
 .ant-layout-footer {
   padding: 0 !important;
+}
+
+.ant-table-expanded-row > .ant-table-cell {
+  padding-left: 60px !important;
+}
+/* .ant-table-tbody > tr:nth-child(1) {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+} */
+.ant-upload-wrapper {
+  width: 100% !important;
+}
+.anticon-delete > svg {
+  color: rgb(226, 39, 39);
+}
+/* .ant-result-title {
+  color: var(--melo-white) !important;
+} */
+/* ckeditor style */
+.main-container {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ck-content {
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+.ck-content * {
+  direction: ltr;
+  text-align: start;
+}
+/* end ckeditor style */
+
+/* table style */
+
+tbody > tr {
+  background: white;
+}
+
+/* end table style */
+
+/* style result */
+
+.white-title > .ant-result > .ant-result-title {
+  color: var(--melo-white) !important;
+}
+.black-title > .ant-result > .ant-result-title {
+  color: var(--normal-black) !important;
+}
+
+/* end style result */
+
+/* style pagination */
+
+.ant-pagination-item {
+  padding: 0 0 0 5px !important;
+}
+.ant-pagination-item > a {
+  color: var(--melo-white) !important;
+}
+.ant-pagination-item:not(.ant-pagination-item-active) {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+/* end style pagination */
+
+.ant-input-group-addon {
+  color: var(--melo-white) !important;
 }
