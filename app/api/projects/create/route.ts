@@ -3,16 +3,16 @@ import ProjectModel from "@/models/Project";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { src, title, tag, link } = body;
+    const { image, title, tag, link } = body;
 
-    if (!src || !title || !tag || !link) {
+    if (!image || !title || !tag || !link) {
       return Response.json(
         { message: "Missing required fields" },
         { status: 400 }
       );
     }
     if (
-      typeof src !== "string" ||
+      typeof image !== "string" ||
       typeof title !== "string" ||
       typeof tag !== "string" ||
       typeof link !== "string"
@@ -21,7 +21,7 @@ export async function POST(req: Request) {
     }
 
     await ProjectModel.create({
-      src,
+      src: image,
       title,
       tag,
       link,
