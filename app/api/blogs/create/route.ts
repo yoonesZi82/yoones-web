@@ -3,16 +3,16 @@ import BlogModel from "@/models/Blog";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { src, title, tag, description } = body;
+    const { image, title, tag, description } = body;
 
-    if (!src || !title || !tag || !description) {
+    if (!image || !title || !tag || !description) {
       return Response.json(
         { message: "Missing required fields" },
         { status: 400 }
       );
     }
     if (
-      typeof src !== "string" ||
+      typeof image !== "string" ||
       typeof title !== "string" ||
       typeof tag !== "string" ||
       typeof description !== "string"
@@ -21,7 +21,7 @@ export async function POST(req: Request) {
     }
 
     await BlogModel.create({
-      src,
+      src: image,
       title,
       tag,
       description,
