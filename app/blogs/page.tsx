@@ -12,7 +12,7 @@ function page() {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [total, setTotal] = useState<number>(10);
   const [paginatedData, setPaginatedData] = useState<[]>([]);
-  let pageSize = 1; // show data with current (pageSize)
+  let pageSize = 8; // show data with current (pageSize)
 
   useEffect(() => {
     axios
@@ -43,7 +43,7 @@ function page() {
         <BreadCrumb />
       </div>
       <LatestCart
-        title=" Blogs"
+        title="Blogs"
         cartData={paginatedData}
         error={error}
         loading={loading}
