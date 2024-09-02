@@ -21,7 +21,7 @@ const SkillCart: React.FC<GlobalCartProps> = ({ id, tag, src, rate }) => {
           title={<Tag color="#111111">{tag}</Tag>}
           description={
             <div className="flex justify-start items-center mt-10 w-full">
-              <Rate disabled defaultValue={rate} />
+              <Rate disabled defaultValue={rate} allowHalf />
             </div>
           }
         />
