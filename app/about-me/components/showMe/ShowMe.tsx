@@ -36,7 +36,7 @@ function ShowMe() {
           <Button
             className="flex-row-reverse bg-meloWhite hover:bg-normalBlack shadow-[10px_10px_10px_#babecc,-10px_-10px_20px_#ffffff] py-[14px] border-none rounded-lg h-[44px] font-medium text-2xl hover:text-meloWhite transition-colors duration-500 btn"
             icon={<PiArrowBendRightDownBold size={20} />}
-            onClick={() => window.scrollTo({ top: 811, behavior: "smooth" })}
+            onClick={() => window.scrollTo({ top: 750, behavior: "smooth" })}
           >
             See Your SKill{" "}
           </Button>
