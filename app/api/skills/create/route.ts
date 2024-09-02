@@ -3,9 +3,9 @@ import SkillModel from "@/models/Skill";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { tag, rate, src } = body;
+    const { tag, rate, image } = body;
 
-    if (!tag || !rate || !src) {
+    if (!tag || !rate || !image) {
       return Response.json(
         { message: "Missing required fields" },
         { status: 400 }
@@ -13,7 +13,7 @@ export async function POST(req: Request) {
     }
     if (
       typeof tag !== "string" ||
-      typeof src !== "string" ||
+      typeof image !== "string" ||
       typeof rate !== "number"
     ) {
       return Response.json({ message: "Invalid data type" }, { status: 400 });
@@ -21,7 +21,7 @@ export async function POST(req: Request) {
 
     await SkillModel.create({
       tag,
-      src,
+      src: image,
       rate,
     });
 
