@@ -5,6 +5,8 @@ import { AntdRegistry } from "@ant-design/nextjs-registry";
 import ThemeProvider from "@/theme/themeProvider";
 import LayoutPage from "@/components/mainLayout/Layout";
 import connectToDB from "@/config/db";
+import { SessionProvider } from "next-auth/react";
+import SessionWrapper from "@/components/session/SessionWraper";
 
 const vazir = Vazirmatn({ subsets: ["latin"], variable: "--font-vazir" });
 
@@ -20,14 +22,16 @@ export default async function RootLayout({
 }>) {
   await connectToDB();
   return (
-    <html lang="en" dir="ltr">
-      <body className={vazir.variable}>
-        <ThemeProvider>
-          <AntdRegistry>
-            <LayoutPage children={children} />
-          </AntdRegistry>
-        </ThemeProvider>
-      </body>
-    </html>
+    <SessionWrapper>
+      <html lang="en" dir="ltr">
+        <body className={vazir.variable}>
+          <ThemeProvider>
+            <AntdRegistry>
+              <LayoutPage children={children} />
+            </AntdRegistry>
+          </ThemeProvider>
+        </body>
+      </html>
+    </SessionWrapper>
   );
 }
