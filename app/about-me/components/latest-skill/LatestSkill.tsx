@@ -27,15 +27,19 @@ const LatestSkill: React.FC<LatestSkillTypes> = ({
             : "gap-10 grid grid-cols-1 desktop:grid-cols-4 laptop:grid-cols-3 mobile:grid-cols-1 tablet:grid-cols-2 mt-10"
         }
       >
-        {loading ? (
+        {loading && (
           <div className="flex justify-center items-center w-full">
             <Spin size="large" />
           </div>
-        ) : error ? (
+        )}
+        {error && (
           <div className="flex justify-center items-center w-full">
-            <h1 className="font-medium text-4xl text-red">{error}</h1>
+            <h1 className="font-medium text-4xl text-red-500">{error}</h1>
           </div>
-        ) : !error ? (
+        )}
+        {!loading &&
+          !error &&
+          cartData.length > 0 &&
           cartData.map((cart) => {
             if ("tag" in cart) {
               return (
@@ -49,8 +53,7 @@ const LatestSkill: React.FC<LatestSkillTypes> = ({
                 </div>
               );
             }
-          })
-        ) : null}
+          })}
       </div>
       <NumberPage total={total} currentPageNumber={currentPage} />
     </div>
