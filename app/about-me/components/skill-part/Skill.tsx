@@ -26,7 +26,7 @@ function Skill() {
         const allShowData = res.data.slice(startIndex, endIndex);
         setPaginatedData(allShowData);
       })
-      .catch((err) => setError("اطلاعات یافت نشد 😔"))
+      .catch((err) => setError("No information found😔"))
       .finally(() => setLoading(false));
   }, [currentPage]);
 
