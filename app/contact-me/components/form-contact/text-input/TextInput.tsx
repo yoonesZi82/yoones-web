@@ -14,6 +14,7 @@ function TextInput({ control, error }: InputPropsType) {
           <TextArea
             autoSize={{ minRows: 3, maxRows: 4 }}
             placeholder="Text *"
+            className="pt-2 font-medium"
             {...field}
           />
         )}
