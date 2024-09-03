@@ -6,7 +6,6 @@ import {
   PiInfoBold,
   PiArticle,
   PiSunFill,
-  PiMoonFill,
 } from "react-icons/pi";
 import type { MenuProps } from "antd";
 import { Menu } from "antd";
