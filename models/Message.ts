@@ -1,34 +1,29 @@
 import mongoose, { Schema } from "mongoose";
-import BlogType from "./types/ProjectType";
-import { randomUUID } from "crypto";
+import MessageType from "./types/MessageType";
 import { v4 as uuID } from "uuid";
 
 const schema = new Schema({
-  title: {
+  text: {
     type: String,
     required: true,
     minLength: 1,
   },
-  src: {
+  name: {
     type: String,
     required: true,
     minLength: 1,
   },
-  tag: {
+  email: {
     type: String,
     required: true,
     minLength: 1,
+    pattern: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/g,
   },
-  type: {
-    type: String,
-    required: true,
-    default: "blogs",
-    immutable: false,
-  },
-  description: {
+  phone: {
     type: String,
     required: true,
     minLength: 1,
+    pattern: /^(\+98|0)?9\d{9}$/g,
   },
   date: {
     type: Number,
@@ -45,6 +40,12 @@ const schema = new Schema({
 });
 
 // Typed because 'mongoose.models.Call' has 'any' type
-const BlogModel: mongoose.Model<BlogType, {}, {}, {}, BlogType, BlogType> =
-  mongoose.models.Blog || mongoose.model("Blog", schema);
-export default BlogModel;
+const MessageModel: mongoose.Model<
+  MessageType,
+  {},
+  {},
+  {},
+  MessageType,
+  MessageType
+> = mongoose.models.Message || mongoose.model("Message", schema);
+export default MessageModel;

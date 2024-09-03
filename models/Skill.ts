@@ -1,5 +1,6 @@
 import mongoose, { Schema } from "mongoose";
-import SkillType from "./types/ProjectType";
+import SkillType from "./types/SkillType";
+import { v4 as uuID } from "uuid";
 
 const schema = new Schema({
   tag: {
@@ -22,6 +23,12 @@ const schema = new Schema({
     required: true,
     default: Date.now(),
     immutable: false,
+  },
+  key: {
+    type: String,
+    required: true,
+    immutable: false,
+    default: () => uuID(),
   },
 });
 
