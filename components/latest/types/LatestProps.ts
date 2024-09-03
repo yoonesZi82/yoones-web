@@ -1,7 +1,7 @@
 interface LatestProps {
   title: string;
   cartData: Array<{
-    id: string;
+    _id: string;
     src: string;
     title: string;
     date: string;
@@ -12,8 +12,8 @@ interface LatestProps {
   }>;
   error?: string;
   loading: boolean;
-  total: number;
-  currentPage: (current: number, size: number) => void;
+  total?: number;
+  currentPage?: (current: number, size: number) => void;
 }
 
 export default LatestProps;

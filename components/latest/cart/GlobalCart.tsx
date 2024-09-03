@@ -14,9 +14,11 @@ const GlobalCart: React.FC<GlobalCartProps> = ({
   link,
   description,
 }) => {
+  console.log(id);
+
   return (
     <>
-      {type === "پروژه ها" ? (
+      {type === "projects" ? (
         <Card
           hoverable
           style={{ width: 240 }}
@@ -34,44 +36,52 @@ const GlobalCart: React.FC<GlobalCartProps> = ({
               <div className="flex flex-col gap-8">
                 <div className="flex justify-between items-center mt-4 w-full">
                   <Tag color="#111111">{tag}</Tag>
-                  <div>{date}</div>
+                  <div>{new Date(date).toLocaleDateString("en-GB")}</div>
                 </div>
                 <div className="w-full">
-                  <Link href={link ? link : "/"}>
-                    <Button className="w-full">مشاهده سایت</Button>
+                  <Link href={link ? `http://${link}` : "/"}>
+                    <Button className="w-full"> View site </Button>
                   </Link>
                 </div>
               </div>
             }
           />
         </Card>
-      ) : type === "وبلاگ ها" ? (
+      ) : type === "blogs" ? (
         <Card
           hoverable
           style={{ width: 240 }}
           cover={
             <img
-              alt="example"
+              alt="blog"
               src={src}
               style={{ height: "200px", objectFit: "cover" }}
+              onError={(e) =>
+                (e.currentTarget.src = "/images/fallback-image.png")
+              }
             />
           }
         >
           <Meta
             title={title}
             description={
-              <div className="flex flex-col gap-8">
-                <div className="flex justify-between items-center mt-4 w-full">
-                  <Tag color="#111111">{tag}</Tag>
-                  <div>{date}</div>
-                </div>
-                <div className="w-full">
-                  <p className="line-clamp-3">{description}</p>
-                </div>
-                <div className="w-full">
-                  <Link href="/">
-                    <Button className="w-full">مشاهده وبلاگ</Button>
-                  </Link>
+              <div>
+                <div className="flex flex-col gap-8">
+                  <div className="flex justify-between items-center mt-4 w-full">
+                    <Tag color="#111111">{tag}</Tag>
+                    <div>{new Date(date).toLocaleDateString("en-US")}</div>
+                  </div>
+                  <div
+                    className="line-clamp-3 w-full"
+                    dangerouslySetInnerHTML={{
+                      __html: description ? description : "Blog is not content",
+                    }}
+                  ></div>
+                  <div className="w-full">
+                    <Link href={id ? `/blogs/${id}` : "/"}>
+                      <Button className="w-full">View blogs</Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             }
