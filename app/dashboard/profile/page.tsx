@@ -1,7 +1,12 @@
 import React from "react";
+import ForgetForm from "./components/forget-form/ForgetForm";
 
 function page() {
-  return <div>profile</div>;
+  return (
+    <>
+      <ForgetForm />
+    </>
+  );
 }
 
 export default page;
