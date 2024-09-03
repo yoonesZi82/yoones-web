@@ -1,5 +1,5 @@
 "use client";
-import { Alert, Button, Modal } from "antd";
+import { Alert, message } from "antd";
 import React, { useEffect, useState } from "react";
 import {
   PiPhoneCall,
@@ -23,6 +23,7 @@ import ButtonForm from "./button-input/ButtonInput";
 type SendInfoSchemaType = z.infer<typeof ContactSchema>;
 
 const ContactForm: React.FC = () => {
+  const [messageApi, contextHolder] = message.useMessage();
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
   const {
@@ -57,22 +58,21 @@ const ContactForm: React.FC = () => {
   const onSubmit: SubmitHandler<SendInfoSchemaType> = async (data) => {
     setLoading(true);
 
-    // axios({
-    //   method: "POST",
-    //   url: "/api/messages/create",
-    //   data: data,
-    // })
-    //   .then((res) => {
-    //     if (res.status === 200) {
-    //       // countDown(200);
-    //       setLoading(false);
-    //     } else {
-    //       // countDown(res.status);
-    //       setLoading(false);
-    //     }
-    //   })
-    //   .catch((err) => setError("در ارسال پیام خطایی رخ داده است"))
-    //   .finally(() => setLoading(false));
+    axios
+      .post("/api/messages/create", {
+        text: data.text,
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+      })
+      .then((res) => {
+        if (res.status === 201) {
+          setError("");
+          messageApi.success("Your message has sent successfully.");
+        }
+      })
+      .catch((err) => setError("An error message has occurred"))
+      .finally(() => setLoading(false));
 
     if (data.checkbox) {
       localStorage.setItem("items", JSON.stringify(data));
@@ -92,18 +92,19 @@ const ContactForm: React.FC = () => {
 
   return (
     <>
+      {contextHolder}
       <div className="gap-20 grid grid-cols-1 desktop:grid-cols-2 laptop:grid-cols-2 mobile:grid-cols-1 tablet:grid-cols-1 my-32">
         <div className="flex flex-col justify-start items-start gap-4">
           <h1 className="font-medium text-5xl text-dark-blue-color">
             {" "}
             How can I help you?{" "}
           </h1>
-          <p className="text-right mt-4 max-w-[95%] font-medium text-3xl text-normal-blue">
-            Lorem Epsom fake text with the production of incomprehensible
-            simplicity from the printing industry and with The use of graphic
-            designers is printers and texts, but also newspapers and magazines
-            Columns and rows as necessary and for the current conditions of the
-            technology required{" "}
+          <p className="mt-4 max-w-[95%] font-medium text-3xl text-left text-normal-blue">
+            I am a front-end expert and I have been working professionally in
+            this field for two years and I am currently updating myself. Now you
+            can fill out this form to order a website design and contact me so
+            that I can contact you as soon as possible. Or send a reply to your
+            email
           </p>
           <div className="flex flex-col justify-start items-start gap-8 mt-6">
             <div className="flex justify-start items-center gap-4">
@@ -129,6 +130,7 @@ const ContactForm: React.FC = () => {
                   Phone{" "}
                 </h1>
                 <p className="font-medium text-[#333] text-2xl">09912209730</p>
+                <p className="font-medium text-[#333] text-2xl">09376122029</p>
               </div>
             </div>
             <div className="flex justify-start items-center gap-4">
@@ -144,7 +146,7 @@ const ContactForm: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col justify-start items-center desktop:items-start laptop:items-center mobile:items-center tablet:items-start gap-5 bg-[#333] p-16 border border-solid rounded-xl w-full h-full">
+        <div className="flex flex-col justify-start items-center desktop:items-start laptop:items-center mobile:items-center tablet:items-center gap-5 bg-[#333] p-16 border border-solid rounded-xl w-full h-full">
           <h1 className="font-medium text-5xl text-meloWhite">Text Me</h1>
           <p className="font-medium text-2xl text-meloWhite">
             Your email will not be published, fill all the fields{" "}

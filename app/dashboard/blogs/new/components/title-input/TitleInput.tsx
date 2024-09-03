@@ -2,19 +2,20 @@ import React from "react";
 import { Input, Alert } from "antd";
 import { Controller } from "react-hook-form";
 import InputPropsType from "../types/inputType";
-const { TextArea } = Input;
+import { PiArticleNyTimesFill } from "react-icons/pi";
 
-function TextInput({ control, error }: InputPropsType) {
+function TitleInput({ control, error, defaultValue }: InputPropsType) {
   return (
     <div>
       <Controller
-        name="text"
+        name="title"
         control={control}
+        defaultValue={defaultValue}
         render={({ field }) => (
-          <TextArea
-            autoSize={{ minRows: 3, maxRows: 4 }}
-            placeholder="Text *"
-            className="pt-2 font-medium"
+          <Input
+            size="large"
+            addonBefore={<PiArticleNyTimesFill size={20} color="#faf4f0" />}
+            placeholder="Title *"
             {...field}
           />
         )}
@@ -31,4 +32,4 @@ function TextInput({ control, error }: InputPropsType) {
   );
 }
 
-export default TextInput;
+export default TitleInput;

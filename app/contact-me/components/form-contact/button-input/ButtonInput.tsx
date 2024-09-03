@@ -2,7 +2,7 @@
 import React from "react";
 import { Button } from "antd";
 import { PiPaperPlaneTilt } from "react-icons/pi";
-import FormBtnPropsTypes from "../types/buttonType";
+import FormBtnPropsTypes from "../types/buttonTypes";
 
 const ButtonForm = ({ loading }: FormBtnPropsTypes) => {
   return (

@@ -2,21 +2,16 @@ import React from "react";
 import { Input, Alert } from "antd";
 import { Controller } from "react-hook-form";
 import InputPropsType from "../types/inputType";
-const { TextArea } = Input;
 
-function TextInput({ control, error }: InputPropsType) {
+function DescriptionInput({ control, error, defaultValue }: InputPropsType) {
   return (
     <div>
       <Controller
-        name="text"
+        name="description"
         control={control}
+        defaultValue={defaultValue}
         render={({ field }) => (
-          <TextArea
-            autoSize={{ minRows: 3, maxRows: 4 }}
-            placeholder="Text *"
-            className="pt-2 font-medium"
-            {...field}
-          />
+          <Input size="large" placeholder="Description *" {...field} />
         )}
       />
       {error && (
@@ -31,4 +26,4 @@ function TextInput({ control, error }: InputPropsType) {
   );
 }
 
-export default TextInput;
+export default DescriptionInput;

@@ -35,7 +35,7 @@ const Map = (Map: MapProps) => {
       <Marker position={posix} icon={redIcon}>
         <Popup>
           <h1 className="font-medium text-2xl text-dark-blue-color">
-            ما اینجایم 🖐️
+            I'm here🖐️
           </h1>
         </Popup>
       </Marker>
