@@ -1,61 +1,58 @@
+"use client";
 import React from "react";
 import { Layout } from "antd";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import {
+  PiTelegramLogoBold,
+  PiGithubLogoFill,
+  PiGitlabLogoSimpleFill,
+  PiInstagramLogoBold,
+} from "react-icons/pi";
 const { Footer } = Layout;
 
 function FooterPage() {
+  const path = usePathname();
   return (
     <Footer>
       <div className="bg-normalBlack px-20 py-10 text-base-content footer">
         <nav>
           <h3 className="font-medium text-2xl footer-title">Services</h3>
-          <Link
-            href={"/"}
-            className="font-medium text-2xl text-meloWhite link link-hover"
-          >
+          <p className="font-medium text-2xl text-meloWhite cursor-text link link-hover">
             Branding
-          </Link>
-          <Link
-            href={"/"}
-            className="font-medium text-2xl text-meloWhite link link-hover"
-          >
+          </p>
+          <p className="font-medium text-2xl text-meloWhite cursor-text link link-hover">
             Design
-          </Link>
-          <Link
-            href={"/"}
-            className="font-medium text-2xl text-meloWhite link link-hover"
-          >
+          </p>
+          <p className="font-medium text-2xl text-meloWhite cursor-text link link-hover">
             Marketing
-          </Link>
-          <Link
-            href={"/"}
-            className="font-medium text-2xl text-meloWhite link link-hover"
-          >
-            Advertisement
-          </Link>
+          </p>
+          <p className="font-medium text-2xl text-meloWhite cursor-text link link-hover">
+            Website design
+          </p>
         </nav>
         <nav>
-          <h3 className="font-medium text-2xl footer-title">Company</h3>
+          <h3 className="font-medium text-2xl footer-title">Popular links</h3>
           <Link
-            href={"/"}
+            href={"/about-me"}
             className="font-medium text-2xl text-meloWhite link link-hover"
           >
-            About us
+            About me
           </Link>
           <Link
-            href={"/"}
+            href={"/contact-me"}
             className="font-medium text-2xl text-meloWhite link link-hover"
           >
-            Contact
+            Contact me
           </Link>
           <Link
-            href={"/"}
+            href={"/blogs"}
             className="font-medium text-2xl text-meloWhite link link-hover"
           >
             Blogs
           </Link>
           <Link
-            href={"/"}
+            href={"/projects"}
             className="font-medium text-2xl text-meloWhite link link-hover"
           >
             Projects
@@ -63,44 +60,56 @@ function FooterPage() {
         </nav>
         <nav>
           <h3 className="font-medium text-2xl footer-title">Legal</h3>
-          <Link
-            href={"/"}
-            className="font-medium text-2xl text-meloWhite link link-hover"
-          >
-            Terms of use
-          </Link>
-          <Link
-            href={"/"}
-            className="font-medium text-2xl text-meloWhite link link-hover"
-          >
-            Privacy policy
-          </Link>
-          <Link
-            href={"/"}
-            className="font-medium text-2xl text-meloWhite link link-hover"
-          >
-            Cookie policy
-          </Link>
+          <p className="font-medium text-2xl text-meloWhite cursor-text link link-hover">
+            Specialized site
+          </p>
+          <p className="font-medium text-2xl text-meloWhite cursor-text link link-hover">
+            High security
+          </p>
+          <p className="font-medium text-2xl text-meloWhite cursor-text link link-hover">
+            Perfect Team
+          </p>
         </nav>
         <form>
           <h3 className="font-medium text-2xl footer-title">Newsletter</h3>
-          <fieldset className="form-control w-80">
-            <label className="label">
-              <span className="font-medium text-2xl text-meloWhite label-text">
-                Enter your email address
-              </span>
-            </label>
-            <div className="join">
-              <input
-                type="text"
-                placeholder="username@site.com"
-                className="input-bordered text-2xl text-meloWhite input join-item"
-              />
-              <button className="bg-meloWhite text-2xl text-normalBlack btn join-item">
-                Subscribe
-              </button>
-            </div>
-          </fieldset>
+          <div className="flex justify-between items-center gap-6 mt-8">
+            <Link
+              href={"https://t.me/Yoones_Zi82"}
+              target="_blank"
+              className="text-meloWhite"
+            >
+              <div className="hover:bg-[rgba(255,255,255,0.1)] p-3 rounded-xl transition-colors duration-300">
+                <PiTelegramLogoBold size={25} />
+              </div>
+            </Link>
+            <Link
+              href={"http://instagram.com/yoones_zamani_"}
+              target="_blank"
+              className="text-meloWhite"
+            >
+              <div className="hover:bg-[rgba(255,255,255,0.1)] p-3 rounded-xl transition-colors duration-300">
+                <PiInstagramLogoBold size={25} />
+              </div>
+            </Link>
+            <Link
+              href={"https://github.com/yoonesZi82"}
+              target="_blank"
+              className="text-meloWhite"
+            >
+              <div className="hover:bg-[rgba(255,255,255,0.1)] p-3 rounded-xl transition-colors duration-300">
+                <PiGithubLogoFill size={25} />
+              </div>
+            </Link>
+            <Link
+              href={"https://gitlab.com/yooneszaamni58"}
+              target="_blank"
+              className="text-meloWhite"
+            >
+              <div className="hover:bg-[rgba(255,255,255,0.1)] p-3 rounded-xl transition-colors duration-300">
+                <PiGitlabLogoSimpleFill size={25} />
+              </div>
+            </Link>
+          </div>
         </form>
       </div>
 

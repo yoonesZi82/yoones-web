@@ -1,5 +1,4 @@
-type FormBtnPropsTypes = {
+interface FormBtnPropsTypes {
   loading: boolean;
-};
-
+}
 export default FormBtnPropsTypes;

@@ -5,6 +5,8 @@ import LatestProps from "./types/LatestProps";
 import GlobalCart from "./cart/GlobalCart";
 import NumberPage from "../pagenation/PageBox";
 import { usePathname } from "next/navigation";
+import { log } from "node:console";
+import LoaderData from "../load-data/LoaderData";
 
 const LatestCart: React.FC<LatestProps> = ({
   title,
@@ -24,25 +26,30 @@ const LatestCart: React.FC<LatestProps> = ({
         <hr className="border-2 border-normalBlack rounded-xl w-full" />
       </div>
       <div
+        key={title}
         className={
           loading || error
             ? "w-full flex justify-center items-center mt-10"
             : "gap-10 grid grid-cols-1 desktop:grid-cols-4 laptop:grid-cols-3 mobile:grid-cols-1 tablet:grid-cols-2 mt-10"
         }
       >
-        {loading ? (
+        {loading && (
           <div className="flex justify-center items-center w-full">
-            <Spin size="large" />
+            <LoaderData />
           </div>
-        ) : error ? (
+        )}
+        {error && (
           <div className="flex justify-center items-center w-full">
             <h1 className="font-medium text-4xl text-red">{error}</h1>
           </div>
-        ) : title === "Projects" ? (
+        )}
+        {!loading &&
+          !error &&
+          title === "Projects" &&
           cartData.map((cart) => (
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center" key={cart._id}>
               <GlobalCart
-                id={cart.id}
+                id={cart._id}
                 src={cart.src}
                 title={cart.title}
                 date={cart.date}
@@ -51,12 +58,14 @@ const LatestCart: React.FC<LatestProps> = ({
                 link={cart.link}
               />
             </div>
-          ))
-        ) : title === "Blogs" ? (
+          ))}
+        {!loading &&
+          !error &&
+          title === "Blogs" &&
           cartData.map((cart) => (
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center" key={cart._id}>
               <GlobalCart
-                id={cart.id}
+                id={cart._id}
                 src={cart.src}
                 title={cart.title}
                 date={cart.date}
@@ -65,12 +74,11 @@ const LatestCart: React.FC<LatestProps> = ({
                 description={cart.description}
               />
             </div>
-          ))
-        ) : null}
+          ))}
       </div>
-      {path.includes("/projects") ? (
+      {path.includes("/projects") && total && currentPage ? (
         <NumberPage total={total} currentPageNumber={currentPage} />
-      ) : path.includes("/blogs") ? (
+      ) : path.includes("/blogs") && total && currentPage ? (
         <NumberPage total={total} currentPageNumber={currentPage} />
       ) : null}
     </div>

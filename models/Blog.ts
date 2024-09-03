@@ -1,5 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 import BlogType from "./types/ProjectType";
+import { randomUUID } from "crypto";
+import { v4 as uuID } from "uuid";
 
 const schema = new Schema({
   title: {
@@ -20,7 +22,7 @@ const schema = new Schema({
   type: {
     type: String,
     required: true,
-    default: "وبلاگ ها",
+    default: "blogs",
     immutable: false,
   },
   description: {
@@ -33,6 +35,12 @@ const schema = new Schema({
     required: true,
     default: Date.now(),
     immutable: false,
+  },
+  key: {
+    type: String,
+    required: true,
+    immutable: false,
+    default: () => uuID(),
   },
 });
 
