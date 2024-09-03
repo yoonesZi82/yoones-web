@@ -21,24 +21,20 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
             itemHoverColor: "#faf4f0",
             itemHoverBg: "#333",
             horizontalItemSelectedColor: "#faf4f0",
-            darkItemBg: "#243B55",
-            darkItemColor: "#faf4f0",
+            darkItemBg: "#000",
+            darkItemColor: "rgba(255,255,255,0.4)",
             fontSize: 18,
-            darkItemSelectedBg: "#2C5364",
+            darkItemSelectedBg: "rgba(255,255,255,0.1)",
             darkItemSelectedColor: "#faf4f0",
-            darkItemHoverBg: "rgba(0,0,0,0.2)",
+            darkItemHoverBg: "rgba(255,255,255,0.1)",
           },
           Layout: {
-            siderBg: "#243B55",
+            siderBg: "#000",
             triggerColor: "#faf4f0",
           },
-
-          Form: {
-            // colorError: "#ff0000",
-          },
-          Input: {
-            // colorText: "#0e104b",
-            // fontSize: 16,
+          Pagination: {
+            itemActiveBg: "rgba(1,1,1,0.8)",
+            itemActiveBgDisabled: "rgba(1,1,1,0.3)",
           },
         },
         token: {
