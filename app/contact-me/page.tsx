@@ -3,22 +3,19 @@ import React from "react";
 import ContactForm from "./components/form-contact/ContactForm";
 import dynamic from "next/dynamic";
 import { useMemo } from "react";
-import { Spin } from "antd";
+import LoaderData from "@/components/load-data/LoaderData";
 
 function page() {
   const Map = useMemo(() => {
     return dynamic(() => import("./components/MapPart/Map"), {
       loading: () => (
         <div className="flex justify-center items-center p-20 w-full">
-          <Spin size="large" />
+          <LoaderData />
         </div>
       ),
       ssr: false,
     });
   }, []);
-
-  // const dataMap = await GetLocation();
-
   return (
     <>
       <div className="pt-10 w-full">
@@ -31,7 +28,6 @@ function page() {
         <hr className="border-2 border-normalBlack border-solid w-full" />
       </div>
       <div className="p-5">
-        {/* <Map posix={[dataMap?.lat as number, dataMap?.lng as number]} /> */}
         <Map posix={[32.68669734, 51.61509843]} />
         <ContactForm />
       </div>
