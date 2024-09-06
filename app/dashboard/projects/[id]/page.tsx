@@ -1,10 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import DefaultProjectForm from "./components/project-form/DefaultProjectForm";
-import { nullable } from "zod";
 import axios from "axios";
 import DataTypeProject from "./types/DataType";
-import LoaderData from "@/components/load-data/LoaderData";
+import LoaderDashboardData from "@/components/load-data-dashboard/LoaderData";
 
 function page({ params }: { params: { id: string } }) {
   const [data, setData] = useState<DataTypeProject | null>(null);
@@ -27,8 +26,8 @@ function page({ params }: { params: { id: string } }) {
   return (
     <>
       {loading && (
-        <div className="flex justify-center items-center w-full h-fit">
-          <LoaderData />
+        <div className="flex justify-center items-center py-[12%] w-full">
+          <LoaderDashboardData />
         </div>
       )}
       {error && (
