@@ -1,5 +1,5 @@
 import React from "react";
-import { DatePicker } from "antd";
+import { DatePicker, Tooltip } from "antd";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 dayjs.extend(customParseFormat);
@@ -7,10 +7,12 @@ dayjs.extend(customParseFormat);
 interface CreateDatePickerProps {
   date: number | string;
   disable: boolean;
+  active?: boolean;
 }
 const CreateDatePicker: React.FC<CreateDatePickerProps> = ({
   date,
   disable,
+  active,
 }) => {
   const dateFormat = "YYYY-MM-DD";
   const getDate = new Date(date).toLocaleDateString("en-US");
@@ -24,10 +26,22 @@ const CreateDatePicker: React.FC<CreateDatePickerProps> = ({
 
   const finalData = `${dateArray[2]}-${dateArray[0]}-${dateArray[1]}`;
   return (
-    <DatePicker
-      defaultValue={dayjs(finalData, dateFormat)}
-      disabled={disable}
-    />
+    <>
+      {active && (
+        <Tooltip title={finalData}>
+          <DatePicker
+            defaultValue={dayjs(finalData, dateFormat)}
+            disabled={disable}
+          />
+        </Tooltip>
+      )}
+      {!active && (
+        <DatePicker
+          defaultValue={dayjs(finalData, dateFormat)}
+          disabled={disable}
+        />
+      )}
+    </>
   );
 };
 
