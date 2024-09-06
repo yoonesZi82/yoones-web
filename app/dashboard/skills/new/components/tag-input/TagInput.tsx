@@ -4,7 +4,7 @@ import { Controller } from "react-hook-form";
 import InputPropsType from "../types/inputType";
 import { PiArticleNyTimesFill } from "react-icons/pi";
 
-function TitleInput({ control, error }: InputPropsType) {
+function TitleInput({ control, error, defaultValue }: InputPropsType) {
   return (
     <div>
       <Controller
@@ -14,6 +14,7 @@ function TitleInput({ control, error }: InputPropsType) {
           <Input
             size="large"
             addonBefore={<PiArticleNyTimesFill size={20} color="#faf4f0" />}
+            defaultValue={defaultValue ? defaultValue : ""}
             placeholder="Tag *"
             {...field}
           />
