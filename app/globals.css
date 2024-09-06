@@ -151,3 +151,7 @@ tbody > tr {
 .ant-input-group-addon {
   color: var(--melo-white) !important;
 }
+
+.ant-modal-mask {
+  backdrop-filter: blur(2px) !important;
+}
