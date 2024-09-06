@@ -2,7 +2,6 @@ import { Spin, Upload, UploadFile, Image } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { UseFormSetValue } from "react-hook-form";
-import { PiUploadSimple } from "react-icons/pi";
 import { InboxOutlined } from "@ant-design/icons";
 
 const { Dragger } = Upload;
@@ -32,7 +31,7 @@ function UploadInput({ setValue, defaultValue }: UploadInputProps) {
 
   useEffect(() => {
     if (file?.status === "done") {
-      setValue("image", `http://localhost:3000/upload/${file.name}`);
+      setValue("image", `http://localhost:3000/upload/skills/${file.name}`);
     } else {
       setValue("image", "");
     }
@@ -55,14 +54,16 @@ function UploadInput({ setValue, defaultValue }: UploadInputProps) {
             listType="picture"
             maxCount={1}
             accept="image/*"
-            action="/api/upload"
+            action="/api/upload/skills"
             fileList={file ? [file] : undefined}
             onPreview={previewLoad}
             onChange={(info) => {
               if (info.file.status === "removed") {
                 setLoading(true);
                 axios
-                  .post("/api/upload/delete", { imgName: info.file.name })
+                  .post("/api/upload/skills/delete", {
+                    imgName: info.file.name,
+                  })
                   .then((res) => res.status === 200 && setFile(undefined))
                   .catch(() =>
                     setFile({
@@ -76,7 +77,7 @@ function UploadInput({ setValue, defaultValue }: UploadInputProps) {
                 setFile({
                   uid: info.file.uid,
                   name: info.file.response.imgName,
-                  url: "/upload/" + info.file.response.imgName,
+                  url: "/upload/skills/" + info.file.response.imgName,
                   status: "done",
                 });
               } else {
