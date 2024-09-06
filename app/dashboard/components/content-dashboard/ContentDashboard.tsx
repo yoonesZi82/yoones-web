@@ -12,8 +12,8 @@ function ContentDashboard({ children }: { children: React.ReactNode }) {
       <div
         className={
           path === "/dashboard"
-            ? "p-6 min-h-[360px] bg-[rgba(255,255,255,0.1)] rounded-2xl "
-            : "bg-[rgba(255,255,255,0.1)] p-2 rounded-2xl min-h-[360px] max-h-[645px] overflow-y-auto"
+            ? "p-6 min-h-[360px] bg-[rgba(255,255,255,0.1)] rounded-2xl max-h-[495px] mobile:max-h-[495px] tablet:max-h-[495px] laptop:max-h-[645px] desktop:max-h-[645px]"
+            : "bg-[rgba(255,255,255,0.1)] p-2 rounded-2xl min-h-[360px] max-h-[495px] mobile:max-h-[495px] tablet:max-h-[495px] laptop:max-h-[645px] desktop:max-h-[645px] overflow-y-auto"
         }
       >
         {children}

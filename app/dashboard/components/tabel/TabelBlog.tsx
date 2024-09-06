@@ -1,18 +1,14 @@
 "use client";
 import React, { useState } from "react";
-import { Button, DatePicker, Table, Tag, Tooltip, message } from "antd";
-import type { TableColumnsType } from "antd";
+import { Button, Table, Tag, Tooltip, message, TableColumnsType } from "antd";
 import { PiPencilLineBold, PiTrashBold } from "react-icons/pi";
 import DataBlogsType from "./types/TableBlogsType";
-import dayjs from "dayjs";
-import customParseFormat from "dayjs/plugin/customParseFormat";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import AddBtn from "../add-data-button/AddBtn";
 import ShowModal from "../modal/ShowModal";
 import CreateDatePicker from "@/utils/CreateDatePicker";
-dayjs.extend(customParseFormat);
-const dateFormat = "YYYY-MM-DD";
+import ErrorResult from "../error-result/ErrorResult";
 interface DataType {
   key: string;
   title: string;
@@ -54,7 +50,7 @@ const TableBlogs: React.FC<DataBlogsType> = ({
       title: "Date",
       dataIndex: "date",
       render: (date) => {
-        return CreateDatePicker({ date, disable: true });
+        return CreateDatePicker({ date, disable: true , active: true});
       },
       width: "30%",
     },
@@ -134,43 +130,55 @@ const TableBlogs: React.FC<DataBlogsType> = ({
 
   return (
     <>
-      {contextHolder}
-      <ShowModal
-        type="delete"
-        title="Delete Project"
-        open={isModalOpenDelete}
-        onCancel={handleCancel}
-        handleCancel={handleCancel}
-        confirmDelete={confirmDelete}
-      />
-      <ShowModal
-        type="edit"
-        title="Edit Project"
-        open={isModalOpenEdit}
-        onCancel={handleCancel}
-        handleCancel={handleCancel}
-        confirmEdit={confirmEdit}
-      />
-      <div className="w-fit">
-        <AddBtn link="/dashboard/blogs/new" titleButton="Add Blog" />
-      </div>
-      <Table
-        columns={columns}
-        dataSource={dataSource}
-        loading={loading}
-        pagination={{ pageSize: 5 }}
-        rowKey={(record) => record.key?.toString()}
-        expandable={{
-          expandedRowRender: (record) => {
-            return (
-              <div
-                className="line-clamp-1 w-full text-gray-500"
-                dangerouslySetInnerHTML={{ __html: record.description }}
-              ></div>
-            );
-          },
-        }}
-      />
+      {error && (
+        <ErrorResult
+          title="There was a problem receiving information"
+          titleButton="Refresh"
+          page="blogs"
+          onClick={() => window.location.reload()}
+        />
+      )}
+      {!error && (
+        <>
+          {contextHolder}
+          <ShowModal
+            type="delete"
+            title="Delete Project"
+            open={isModalOpenDelete}
+            onCancel={handleCancel}
+            handleCancel={handleCancel}
+            confirmDelete={confirmDelete}
+          />
+          <ShowModal
+            type="edit"
+            title="Edit Project"
+            open={isModalOpenEdit}
+            onCancel={handleCancel}
+            handleCancel={handleCancel}
+            confirmEdit={confirmEdit}
+          />
+          <div className="w-fit">
+            <AddBtn link="/dashboard/blogs/new" titleButton="Add Blog" />
+          </div>
+          <Table
+            columns={columns}
+            dataSource={dataSource}
+            loading={loading}
+            pagination={{ pageSize: 5 }}
+            rowKey={(record) => record.key?.toString()}
+            expandable={{
+              expandedRowRender: (record) => {
+                return (
+                  <div
+                    className="line-clamp-1 w-full text-gray-500"
+                    dangerouslySetInnerHTML={{ __html: record.description }}
+                  ></div>
+                );
+              },
+            }}
+          />
+        </>
+      )}
     </>
   );
 };

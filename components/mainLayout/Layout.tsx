@@ -1,10 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Layout, Spin } from "antd";
+import { Layout } from "antd";
 import Navbar from "../navbar/Nav";
 import FooterPage from "../footer/Footer";
 import { usePathname } from "next/navigation";
-import DashboardLayout from "@/app/dashboard/components/DashboardLayout";
 import WebLoader from "../web-loader/WebLoader";
 const { Content } = Layout;
 

@@ -33,7 +33,7 @@ function UploadInput({ setValue, defaultValue }: UploadInputProps) {
 
   useEffect(() => {
     if (file?.status === "done") {
-      setValue("image", `http://localhost:3000/upload/${file.name}`);
+      setValue("image", `http://localhost:3000/upload/blogs/${file.name}`);
     } else {
       setValue("image", "");
     }
@@ -53,7 +53,7 @@ function UploadInput({ setValue, defaultValue }: UploadInputProps) {
         listType="picture"
         maxCount={1}
         accept="image/*"
-        action="/api/upload"
+        action="/api/upload/blogs"
         onPreview={previewLoad}
         fileList={file ? [file] : undefined}
         onChange={(info) => {
@@ -61,7 +61,7 @@ function UploadInput({ setValue, defaultValue }: UploadInputProps) {
             setLoading(true);
 
             axios
-              .post("/api/upload/delete", { imgName: info.file.name })
+              .post("/api/upload/blogs/delete", { imgName: info.file.name })
               .then((res) => res.status === 200 && setFile(undefined))
               .catch(() =>
                 setFile({
@@ -75,7 +75,7 @@ function UploadInput({ setValue, defaultValue }: UploadInputProps) {
             setFile({
               uid: info.file.uid,
               name: info.file.response.imgName,
-              url: "/upload/" + info.file.response.imgName,
+              url: "/upload/blogs/" + info.file.response.imgName,
               status: "done",
             });
           } else {

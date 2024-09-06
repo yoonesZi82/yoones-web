@@ -1,15 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import { Button, DatePicker, Table, Tooltip, message } from "antd";
-import type { TableColumnsType } from "antd";
+import { Button, Table, Tooltip, message, TableColumnsType } from "antd";
 import { PiTrashBold } from "react-icons/pi";
-import dayjs from "dayjs";
-import customParseFormat from "dayjs/plugin/customParseFormat";
 import axios from "axios";
 import ShowModal from "../modal/ShowModal";
 import DataMessageType from "./types/TableMessageType";
-dayjs.extend(customParseFormat);
-const dateFormat = "YYYY-MM-DD";
+import ErrorResult from "../error-result/ErrorResult";
+import CreateDatePicker from "@/utils/CreateDatePicker";
 interface DataType {
   key: string;
   text: string;
@@ -46,22 +43,7 @@ const TableMessage: React.FC<DataMessageType> = ({
       title: "Date",
       dataIndex: "date",
       render: (date) => {
-        const getDate = new Date(date).toLocaleDateString("en-US");
-        const dateArray = getDate.split("/");
-        if (dateArray[0].length === 1) {
-          dateArray[0] = `0${dateArray[0]}`;
-        }
-        if (dateArray[1].length === 1) {
-          dateArray[1] = `0${dateArray[1]}`;
-        }
-
-        const finalData = `${dateArray[2]}-${dateArray[0]}-${dateArray[1]}`;
-
-        return (
-          <div>
-            <DatePicker defaultValue={dayjs(finalData, dateFormat)} disabled />
-          </div>
-        );
+        return CreateDatePicker({ date, disable: true, active: true });
       },
       width: "30%",
     },
@@ -111,31 +93,43 @@ const TableMessage: React.FC<DataMessageType> = ({
 
   return (
     <>
-      {contextHolder}
-      <ShowModal
-        type="delete"
-        title="Delete Project"
-        open={isModalOpenDelete}
-        onCancel={handleCancel}
-        handleCancel={handleCancel}
-        confirmDelete={confirmDelete}
-      />
-      <Table
-        columns={columns}
-        dataSource={dataSource}
-        loading={loading}
-        pagination={{ pageSize: 5 }}
-        rowKey={(record) => record.key?.toString()}
-        expandable={{
-          expandedRowRender: (record) => {
-            return (
-              <div className="w-full">
-                <p className="text-gray-500">{record.text}</p>
-              </div>
-            );
-          },
-        }}
-      />
+      {error && (
+        <ErrorResult
+          title="There was a problem receiving information"
+          titleButton="Refresh"
+          page="message"
+          onClick={() => window.location.reload()}
+        />
+      )}
+      {!error && (
+        <>
+          {contextHolder}
+          <ShowModal
+            type="delete"
+            title="Delete Project"
+            open={isModalOpenDelete}
+            onCancel={handleCancel}
+            handleCancel={handleCancel}
+            confirmDelete={confirmDelete}
+          />
+          <Table
+            columns={columns}
+            dataSource={dataSource}
+            loading={loading}
+            pagination={{ pageSize: 5 }}
+            rowKey={(record) => record.key?.toString()}
+            expandable={{
+              expandedRowRender: (record) => {
+                return (
+                  <div className="w-full">
+                    <p className="text-gray-500">{record.text}</p>
+                  </div>
+                );
+              },
+            }}
+          />
+        </>
+      )}
     </>
   );
 };

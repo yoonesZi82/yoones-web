@@ -8,7 +8,11 @@ export async function POST(req: Request) {
     const json = await req.json();
     const { imgName } = json;
 
-    const directory = path.join(process.cwd(), "public/upload/", imgName);
+    const directory = path.join(
+      process.cwd(),
+      "public/upload/projects",
+      imgName
+    );
 
     if (!existsSync(directory)) {
       return Response.json("فایل مورد نظر یافت نشد!", { status: 400 });

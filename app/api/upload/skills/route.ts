@@ -27,7 +27,7 @@ export async function POST(req: Request) {
       const buffer = Buffer.from(arrBuffer);
 
       const filename = Date.now() + "_" + fileAnt.name;
-      const uploadDir = path.join(process.cwd(), "public/upload");
+      const uploadDir = path.join(process.cwd(), "public/upload/skills");
 
       if (!existsSync(uploadDir)) {
         mkdirSync(uploadDir);
@@ -67,14 +67,17 @@ export async function POST(req: Request) {
       const buffer = Buffer.from(arrBuffer);
 
       const filename = Date.now() + "_" + fileCKEditor.name;
-      const uploadDir = path.join(process.cwd(), "public/upload");
+      const uploadDir = path.join(process.cwd(), "public/upload/skills");
 
       if (!existsSync(uploadDir)) {
         mkdirSync(uploadDir);
       }
       await fs.writeFile(uploadDir + `\\${filename}`, buffer);
 
-      return Response.json({ url: `/upload/${filename}` }, { status: 200 });
+      return Response.json(
+        { url: `/upload/skills/${filename}` },
+        { status: 200 }
+      );
     }
 
     return Response.json("File not found!", { status: 400 });

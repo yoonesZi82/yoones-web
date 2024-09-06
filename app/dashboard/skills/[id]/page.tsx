@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import DefaultSkillForm from "./components/skill-form/DefaultSkillForm";
 import axios from "axios";
 import DataTypeSkill from "./types/DataType";
-import LoaderData from "@/components/load-data/LoaderData";
+import LoaderDashboardData from "@/components/load-data-dashboard/LoaderData";
 
 function page({ params }: { params: { id: string } }) {
   const [data, setData] = useState<DataTypeSkill | null>(null);
@@ -26,8 +26,8 @@ function page({ params }: { params: { id: string } }) {
   return (
     <>
       {loading && (
-        <div className="flex justify-center items-center mt-24 w-full">
-          <LoaderData />
+        <div className="flex justify-center items-center mt-24 py-[12%] w-full">
+          <LoaderDashboardData />
         </div>
       )}
       {error && (

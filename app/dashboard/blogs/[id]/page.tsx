@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import DefaultBlogForm from "./components/blog-form/DefaultBlogForm";
 import axios from "axios";
 import DetailBlogType from "./components/blog-form/types/DetailBlogType";
-import LoaderData from "@/components/load-data/LoaderData";
+import LoaderDashboardData from "@/components/load-data-dashboard/LoaderData";
 
 function page({ params }: { params: { id: string } }) {
   const [data, setData] = useState<DetailBlogType | null>(null);
@@ -26,8 +26,8 @@ function page({ params }: { params: { id: string } }) {
   return (
     <>
       {loading && (
-        <div className="flex justify-center items-center w-full">
-          <LoaderData />
+        <div className="flex justify-center items-center py-[12%] w-full">
+          <LoaderDashboardData />
         </div>
       )}
       {error && (
