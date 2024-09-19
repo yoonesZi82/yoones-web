@@ -8,11 +8,6 @@
   --melo-white: #faf4f0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-  }
-}
-
 html {
   font-size: 62.5%;
 }
@@ -21,19 +16,6 @@ html {
   html {
     font-size: 50%;
   }
-}
-
-body::-webkit-scrollbar {
-  width: 10px;
-}
-body::-webkit-scrollbar-track {
-  background: var(--melo-white);
-  border-radius: 3px;
-}
-
-body::-webkit-scrollbar-thumb {
-  background: var(--normal-black);
-  border-radius: 3px;
 }
 
 * {
@@ -154,4 +136,46 @@ tbody > tr {
 
 .ant-modal-mask {
   backdrop-filter: blur(2px) !important;
+}
+
+.ant-table-cell {
+  @apply text-2xl;
+  @apply font-medium;
+  @apply text-normalBlack;
+}
+
+.anticon-ellipsis > svg {
+  color: #ffffff;
+}
+
+.buttonVisible {
+  position: fixed !important;
+  z-index: 999 !important;
+  bottom: 12px !important;
+  right: 1rem !important;
+  width: 40px !important;
+  height: 40px !important;
+  transition-duration: 500ms !important;
+  transition-property: opacity !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  opacity: 1 !important;
+  transition: 0.3s background-color !important;
+  vertical-align: middle !important;
+  transform: perspective(1px) translateZ(0) !important;
+  box-shadow: 10px 10px 10px #babecc, -10px -10px 20px #ffffff;
+  border-radius: 50% !important;
+  border: none;
+  outline: none;
+
+  &:hover {
+    background-color: var(--melo-white) !important;
+  }
+  &:hover .scroll-icon {
+    color: var(--normal-black) !important;
+  }
+}
+
+.buttonInvisible {
+  display: none;
+  opacity: 0;
 }
