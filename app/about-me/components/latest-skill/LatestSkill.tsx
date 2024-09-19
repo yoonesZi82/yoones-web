@@ -1,8 +1,8 @@
 import React from "react";
 import LatestSkillTypes from "./types/LatestSkillTypes";
 import SkillCart from "./cart/SkillCart";
-import { Spin } from "antd";
 import NumberPage from "@/components/pagenation/PageBox";
+import LoaderData from "@/components/load-data/LoaderData";
 
 const LatestSkill: React.FC<LatestSkillTypes> = ({
   title,
@@ -22,19 +22,28 @@ const LatestSkill: React.FC<LatestSkillTypes> = ({
       </div>
       <div
         className={
-          loading || error
+          loading || error || cartData.length === 0
             ? "w-full flex justify-center items-center mt-10"
             : "gap-10 grid grid-cols-1 desktop:grid-cols-4 laptop:grid-cols-3 mobile:grid-cols-1 tablet:grid-cols-2 mt-10"
         }
       >
         {loading && (
           <div className="flex justify-center items-center w-full">
-            <Spin size="large" />
+            <LoaderData />
           </div>
         )}
+
         {error && (
           <div className="flex justify-center items-center w-full">
-            <h1 className="font-medium text-4xl text-red-500">{error}</h1>
+            <h1 className="font-medium text-4xl text-normalBlack">{error}</h1>
+          </div>
+        )}
+        {!loading && !error && cartData.length === 0 && (
+          <div className="flex justify-center items-center w-full">
+            <h1 className="font-medium text-4xl text-neutral-600">
+              {" "}
+              There are no blogs to display 😔{" "}
+            </h1>
           </div>
         )}
         {!loading &&

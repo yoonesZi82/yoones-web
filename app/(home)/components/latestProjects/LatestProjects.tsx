@@ -15,7 +15,7 @@ function LatestProjects() {
           setData(res.data);
         }
       })
-      .catch((err) => setError("اطلاعات یافت نشد 😔"))
+      .catch((err) => setError("Can not find information 😔"))
       .finally(() => setLoading(false));
   }, []);
   return (
