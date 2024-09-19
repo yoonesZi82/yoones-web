@@ -20,7 +20,7 @@ export async function POST(req: Request) {
     }
 
     await SkillModel.create({
-      tag,
+      tag: `${tag.charAt(0).toUpperCase()}${tag.slice(1)}`,
       src: image,
       rate,
     });

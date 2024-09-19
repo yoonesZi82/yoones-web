@@ -1,9 +1,10 @@
-// import { auth } from "@/auth/auth";
 import path from "path";
 import fs from "fs/promises";
 import { existsSync, mkdirSync } from "fs";
 
 export async function POST(req: Request) {
+  console.log(req);
+
   try {
     const formData = await req.formData();
 
@@ -36,7 +37,6 @@ export async function POST(req: Request) {
 
       return Response.json({ imgName: filename }, { status: 200 });
     }
-
     // For uploading file in CKEditor 5
     const fileCKEditor = formData.get("upload") as File | null;
     if (fileCKEditor) {

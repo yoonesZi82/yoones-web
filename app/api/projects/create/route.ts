@@ -22,8 +22,8 @@ export async function POST(req: Request) {
 
     await ProjectModel.create({
       src: image,
-      title,
-      tag,
+      title: `${title.charAt(0).toUpperCase()}${title.slice(1)}`,
+      tag: `${tag.charAt(0).toUpperCase()}${tag.slice(1)}`,
       link,
     });
 
