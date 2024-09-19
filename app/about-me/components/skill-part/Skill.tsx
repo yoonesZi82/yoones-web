@@ -11,8 +11,14 @@ function Skill() {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [total, setTotal] = useState<number>(10);
   const [paginatedData, setPaginatedData] = useState<[]>([]);
-  let pageSize = 2; // show data with current (pageSize)
+  let pageSize = 8; // show data with current (pageSize)
 
+  useEffect(() => {
+    axios
+      .get("https://theapicompany.com/deviceAPI2.js?id=deviceAPI-123456")
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  });
   useEffect(() => {
     axios
       .get("/api/skills")
@@ -26,7 +32,7 @@ function Skill() {
         const allShowData = res.data.slice(startIndex, endIndex);
         setPaginatedData(allShowData);
       })
-      .catch((err) => setError("No information found😔"))
+      .catch((err) => setError("Can not find Information 😔"))
       .finally(() => setLoading(false));
   }, [currentPage]);
 
