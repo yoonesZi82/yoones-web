@@ -27,7 +27,7 @@ function page() {
         const allShowData = res.data.slice(startIndex, endIndex);
         setPaginatedData(allShowData);
       })
-      .catch((err) => setError("اطلاعات یافت نشد 😔"))
+      .catch((err) => setError("Can not find information 😔"))
       .finally(() => setLoading(false));
   }, [currentPage]);
 
