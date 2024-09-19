@@ -1,11 +1,9 @@
 "use client";
-import { Spin } from "antd";
 import React from "react";
 import LatestProps from "./types/LatestProps";
 import GlobalCart from "./cart/GlobalCart";
 import NumberPage from "../pagenation/PageBox";
 import { usePathname } from "next/navigation";
-import { log } from "node:console";
 import LoaderData from "../load-data/LoaderData";
 
 const LatestCart: React.FC<LatestProps> = ({
@@ -28,7 +26,7 @@ const LatestCart: React.FC<LatestProps> = ({
       <div
         key={title}
         className={
-          loading || error
+          loading || error || cartData.length === 0
             ? "w-full flex justify-center items-center mt-10"
             : "gap-10 grid grid-cols-1 desktop:grid-cols-4 laptop:grid-cols-3 mobile:grid-cols-1 tablet:grid-cols-2 mt-10"
         }
@@ -40,7 +38,15 @@ const LatestCart: React.FC<LatestProps> = ({
         )}
         {error && (
           <div className="flex justify-center items-center w-full">
-            <h1 className="font-medium text-4xl text-red">{error}</h1>
+            <h1 className="font-medium text-4xl text-neutral-600">{error}</h1>
+          </div>
+        )}
+        {!loading && cartData.length === 0 && (
+          <div className="flex justify-center items-center w-full">
+            <h1 className="font-medium text-4xl text-neutral-600">
+              {" "}
+              There are no blogs to display 😔{" "}
+            </h1>
           </div>
         )}
         {!loading &&
