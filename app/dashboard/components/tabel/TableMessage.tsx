@@ -122,7 +122,9 @@ const TableMessage: React.FC<DataMessageType> = ({
               expandedRowRender: (record) => {
                 return (
                   <div className="w-full">
-                    <p className="text-gray-500">{record.text}</p>
+                    <p className="font-medium text-2xl text-neutral-600">
+                      {record.text}
+                    </p>
                   </div>
                 );
               },

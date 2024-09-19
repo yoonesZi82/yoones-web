@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Button } from "antd";
 import Link from "next/link";
@@ -8,11 +8,7 @@ import { TypeAnimation } from "react-type-animation";
 
 function Main() {
   const [descriptionEnMe, setDescription] =
-    useState<string>(`My name is Younes Ghaleh Renani, I am a specialist in the Qur'an and basin, born in 1382
-    I am looking for more experience and updates for nearly three consecutive years
-    I am myself, now I can call myself a senior in this basin
-    The tenth and one of my top skills is next js, react, with the help of it
-    I can make attractive sites for you according to your wishes✌️`);
+    useState<string>(`My name is Yoones Ghaleh Renani, I am a front-end specialist born in 2013 and I have been looking for more experience and updating myself for nearly three consecutive years, now I can call myself a senior in this field and one of my best skills is next js and react , keep in touch with me so that I can create attractive sites for you according to your wishes✌️`);
 
   return (
     <div className="flex desktop:flex-row laptop:flex-row flex-col mobile:flex-col tablet:flex-col items-center gap-10 w-full">

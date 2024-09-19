@@ -12,6 +12,8 @@ import { Menu } from "antd";
 import Link from "next/link";
 import Image from "next/image";
 import { Layout } from "antd";
+import CreateDatePicker from "@/utils/CreateDatePicker";
+import GetNowDate from "@/utils/GetNowDate";
 const { Header } = Layout;
 
 type MenuItem = Required<MenuProps>["items"][number];
@@ -45,12 +47,6 @@ const items: MenuItem[] = [
 ];
 
 const Navbar: React.FC = () => {
-  const [current, setCurrent] = useState("mail");
-
-  const onClick: MenuProps["onClick"] = (e) => {
-    console.log("click ", e);
-    setCurrent(e.key);
-  };
   return (
     <Header className="top-0 z-[999] fixed flex justify-between items-center gap-10 bg-normalBlack w-full">
       <div className="demo-logo">
@@ -72,9 +68,9 @@ const Navbar: React.FC = () => {
         className="flex justify-center items-center"
         style={{ flex: 1, minWidth: 0 }}
       />
-      <div>
-        <PiSunFill size={30} color="#fff" />
-      </div>
+      <p className="font-medium text-2xl text-meloWhite">
+        {GetNowDate() as string}
+      </p>
     </Header>
   );
 };

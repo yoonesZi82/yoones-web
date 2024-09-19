@@ -28,7 +28,7 @@ const HeaderDashboard: React.FC<HeaderDashboardPropsType> = ({
       .catch((err) => setError("Not get user by token"));
   }, []);
   return (
-    <Header className="flex flex-col justify-start items-center bg-[#000]">
+    <Header className="flex justify-center items-center bg-[#000]">
       <div className="flex justify-between items-center w-full">
         {user ? (
           <h1 className="font-medium text-3xl text-meloWhite">
@@ -41,7 +41,9 @@ const HeaderDashboard: React.FC<HeaderDashboardPropsType> = ({
         ) : (
           "ADMIN"
         )}
-        <p className="text-meloWhite">{GetNowDate() as string} </p>
+        <p className="font-medium text-2xl text-meloWhite">
+          {GetNowDate() as string}{" "}
+        </p>
       </div>
     </Header>
   );

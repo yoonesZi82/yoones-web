@@ -2,10 +2,11 @@
   "name": "yoones-web",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://yoones-web-82.ir",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 4258",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 4258",
     "lint": "next lint"
   },
   "dependencies": {

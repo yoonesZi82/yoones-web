@@ -22,9 +22,11 @@ export async function POST(req: Request) {
 
     await BlogModel.create({
       src: image,
-      title,
-      tag,
-      description,
+      title: `${title.charAt(0).toUpperCase()}${title.slice(1)}`,
+      tag: `${tag.charAt(0).toUpperCase()}${tag.slice(1)}`,
+      description: `${description.charAt(0).toUpperCase()}${description.slice(
+        1
+      )}`,
     });
 
     return Response.json(

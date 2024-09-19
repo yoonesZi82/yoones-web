@@ -14,8 +14,6 @@ const GlobalCart: React.FC<GlobalCartProps> = ({
   link,
   description,
 }) => {
-  console.log(id);
-
   return (
     <>
       {type === "projects" ? (
@@ -24,8 +22,11 @@ const GlobalCart: React.FC<GlobalCartProps> = ({
           style={{ width: 240 }}
           cover={
             <img
-              alt="example"
+              alt="project"
               src={src}
+              onError={(err) => {
+                err.currentTarget.src = "/images/fallback-image.png";
+              }}
               style={{ height: "200px", objectFit: "cover" }}
             />
           }
@@ -35,12 +36,19 @@ const GlobalCart: React.FC<GlobalCartProps> = ({
             description={
               <div className="flex flex-col gap-8">
                 <div className="flex justify-between items-center mt-4 w-full">
-                  <Tag color="#111111">{tag}</Tag>
-                  <div>{new Date(date).toLocaleDateString("en-GB")}</div>
+                  <Tag color="#111111">
+                    <p className="pb-1 font-medium text-xl">{tag}</p>
+                  </Tag>
+                  <div className="font-medium text-neutral-600 text-xl">
+                    {new Date(date).toLocaleDateString("en-US")}
+                  </div>
                 </div>
                 <div className="w-full">
-                  <Link href={link ? `http://${link}` : "/"}>
-                    <Button className="w-full"> View site </Button>
+                  <Link target="_blank" href={link ? `http://${link}` : "/"}>
+                    <Button className="bg-meloWhite hover:bg-normalBlack pt-1 w-full font-medium text-2xl text-normalBlack hover:text-meloWhite transition-colors duration-500">
+                      {" "}
+                      View site{" "}
+                    </Button>
                   </Link>
                 </div>
               </div>
@@ -68,18 +76,28 @@ const GlobalCart: React.FC<GlobalCartProps> = ({
               <div>
                 <div className="flex flex-col gap-8">
                   <div className="flex justify-between items-center mt-4 w-full">
-                    <Tag color="#111111">{tag}</Tag>
-                    <div>{new Date(date).toLocaleDateString("en-US")}</div>
+                    <Tag color="#111111">
+                      <p className="pb-1 font-medium text-xl">{tag}</p>
+                    </Tag>
+                    <div className="font-medium text-neutral-600 text-xl">
+                      {new Date(date).toLocaleDateString("en-US")}
+                    </div>
                   </div>
-                  <div
-                    className="line-clamp-3 w-full"
-                    dangerouslySetInnerHTML={{
-                      __html: description ? description : "Blog is not content",
-                    }}
-                  ></div>
+                  <div className="w-full">
+                    <p
+                      className="line-clamp-3 font-medium text-neutral-600"
+                      dangerouslySetInnerHTML={{
+                        __html: description
+                          ? description
+                          : "Blog is not content",
+                      }}
+                    ></p>
+                  </div>
                   <div className="w-full">
                     <Link href={id ? `/blogs/${id}` : "/"}>
-                      <Button className="w-full">View blogs</Button>
+                      <Button className="bg-meloWhite hover:bg-normalBlack pt-1 w-full font-medium text-2xl text-normalBlack hover:text-meloWhite transition-colors duration-500">
+                        View blogs
+                      </Button>
                     </Link>
                   </div>
                 </div>

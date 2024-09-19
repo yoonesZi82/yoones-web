@@ -6,7 +6,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 function page() {
-  const [data, setData] = useState<[]>([]);
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -27,7 +26,7 @@ function page() {
         const allShowData = res.data.slice(startIndex, endIndex);
         setPaginatedData(allShowData);
       })
-      .catch((err) => setError("اطلاعات یافت نشد 😔"))
+      .catch((err) => setError("Can not find information 😔"))
       .finally(() => setLoading(false));
   }, [currentPage]);
 

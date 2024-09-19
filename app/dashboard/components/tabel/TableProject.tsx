@@ -65,7 +65,7 @@ const TableBlogs: React.FC<DataProjectType> = ({
             alt="photo"
             className="rounded-[50%] w-[50px] h-[50px] object-cover"
             onError={(err) => {
-              err.currentTarget.src = "/images/logo.png";
+              err.currentTarget.src = "/images/fallback-image.png";
             }}
           />
         );
@@ -174,9 +174,9 @@ const TableBlogs: React.FC<DataProjectType> = ({
                 return (
                   <div className="w-full">
                     <Link
-                      href={"http://" + record.link}
+                      href={`http://${record.link}`}
                       target="_blank"
-                      className="text-gray-500 underline cursor-pointer"
+                      className="font-medium text-2xl text-neutral-600 underline cursor-pointer"
                     >
                       {record.link}
                     </Link>

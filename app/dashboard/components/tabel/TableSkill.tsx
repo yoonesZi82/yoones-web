@@ -66,7 +66,7 @@ const TableBlogs: React.FC<DataSkillType> = ({
             alt="photo"
             className="rounded-[50%] w-[50px] h-[50px] object-cover"
             onError={(err) => {
-              err.currentTarget.src = "/images/logo.png";
+              err.currentTarget.src = "/images/fallback-image.png";
             }}
           />
         );

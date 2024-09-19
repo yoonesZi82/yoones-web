@@ -50,7 +50,7 @@ const TableBlogs: React.FC<DataBlogsType> = ({
       title: "Date",
       dataIndex: "date",
       render: (date) => {
-        return CreateDatePicker({ date, disable: true , active: true});
+        return CreateDatePicker({ date, disable: true, active: true });
       },
       width: "30%",
     },
@@ -64,7 +64,7 @@ const TableBlogs: React.FC<DataBlogsType> = ({
             alt="photo"
             className="rounded-[50%] w-[50px] h-[50px] object-cover"
             onError={(err) => {
-              err.currentTarget.src = "/images/logo.png";
+              err.currentTarget.src = "/images/fallback-image.png";
             }}
           />
         );
@@ -169,10 +169,12 @@ const TableBlogs: React.FC<DataBlogsType> = ({
             expandable={{
               expandedRowRender: (record) => {
                 return (
-                  <div
-                    className="line-clamp-1 w-full text-gray-500"
-                    dangerouslySetInnerHTML={{ __html: record.description }}
-                  ></div>
+                  <div className="line-clamp-1 w-full">
+                    <p
+                      className="font-medium text-2xl text-neutral-600"
+                      dangerouslySetInnerHTML={{ __html: record.description }}
+                    ></p>
+                  </div>
                 );
               },
             }}

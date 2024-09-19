@@ -13,6 +13,9 @@ const SkillCart: React.FC<GlobalCartProps> = ({ id, tag, src, rate }) => {
           <img
             alt="example"
             src={src}
+            onError={(e) => {
+              e.currentTarget.src = "/images/fallback-image.png";
+            }}
             style={{ height: "200px", objectFit: "cover" }}
           />
         }

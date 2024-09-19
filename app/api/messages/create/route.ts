@@ -22,8 +22,8 @@ export async function POST(req: Request) {
     }
 
     await MessageModel.create({
-      text,
-      name,
+      text: `${text.charAt(0).toUpperCase()}${text.slice(1)}`,
+      name: `${name.charAt(0).toUpperCase()}${name.slice(1)}`,
       email,
       phone,
     });

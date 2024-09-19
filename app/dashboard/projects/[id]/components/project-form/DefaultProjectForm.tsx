@@ -20,7 +20,6 @@ function BlogForm({ data }: { data: DetailDataProject }) {
   const route = useRouter();
   const [messageApi, contextHolder] = message.useMessage();
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string>("");
   const {
     control,
     handleSubmit,

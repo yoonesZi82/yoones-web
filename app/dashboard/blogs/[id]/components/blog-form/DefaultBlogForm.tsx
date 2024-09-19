@@ -1,6 +1,6 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import BlogSchema from "../../../new/components/form-create-blog-schema/Schema";
 import { z } from "zod";
@@ -11,7 +11,6 @@ import CreateBlog from "@/app/dashboard/components/button-input/CreateBlog";
 import { Alert, message } from "antd";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import DescriptionInput from "../../../new/components/description-input/DescriptonInput";
 import DataType from "../../types/DataType";
 import CustomEditor from "@/app/dashboard/components/ch-editor/CustomEditor";
 

@@ -26,8 +26,19 @@ const PhotoBlog: React.FC<PhotoBlogPropType> = ({ date, src, title }) => {
         />
       </div>
       <div className="desktop:w-[40%] laptop:w-[40%] flex justify-between items-center w-[75%] mobile:w-[75%] tablet:w-[60%]">
-        <div>{CreateDatePicker({ date: date ? date : "", disable: true })}</div>
-        <Tag color="#111111">{title ? title : "Title"}</Tag>
+        <div>
+          {CreateDatePicker({
+            date: date ? date : "",
+            disable: true,
+            active: true,
+          })}
+        </div>
+        <Tag color="#111111">
+          <p className="pb-1 font-medium text-xl">
+            {" "}
+            {title ? title : "Title"}{" "}
+          </p>
+        </Tag>
       </div>
     </div>
   );

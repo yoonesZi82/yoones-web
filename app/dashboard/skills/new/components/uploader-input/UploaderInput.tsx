@@ -1,8 +1,9 @@
-import { Spin, Upload, UploadFile, Image } from "antd";
+import { Upload, UploadFile, Image } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { UseFormSetValue } from "react-hook-form";
 import { InboxOutlined } from "@ant-design/icons";
+import LoaderDashboardData from "@/components/load-data-dashboard/LoaderData";
 
 const { Dragger } = Upload;
 type UploadInputProps = {
@@ -31,7 +32,7 @@ function UploadInput({ setValue, defaultValue }: UploadInputProps) {
 
   useEffect(() => {
     if (file?.status === "done") {
-      setValue("image", `http://localhost:3000/upload/skills/${file.name}`);
+      setValue("image", `https://yoones-web-82.ir/upload/skills/${file.name}`);
     } else {
       setValue("image", "");
     }
@@ -47,7 +48,9 @@ function UploadInput({ setValue, defaultValue }: UploadInputProps) {
   return (
     <div className="flex items-center gap-4">
       {loading ? (
-        <Spin />
+        <div className="flex justify-center items-center w-full">
+          <LoaderDashboardData />
+        </div>
       ) : (
         <>
           <Dragger

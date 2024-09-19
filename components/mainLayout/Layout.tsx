@@ -5,6 +5,7 @@ import Navbar from "../navbar/Nav";
 import FooterPage from "../footer/Footer";
 import { usePathname } from "next/navigation";
 import WebLoader from "../web-loader/WebLoader";
+import ScrollToTop from "@/utils/ScrollToTup";
 const { Content } = Layout;
 
 function LayoutPage({ children }: { children: React.ReactNode }) {
@@ -25,13 +26,16 @@ function LayoutPage({ children }: { children: React.ReactNode }) {
       ) : !path.includes("/dashboard") &&
         !path.includes("/login") &&
         !path.includes("/forget-password") ? (
-        <Layout>
-          <Navbar />
-          <Content className="bg-transparent px-[48px] py-[80px]">
-            <div>{children}</div>
-          </Content>
-          <FooterPage />
-        </Layout>
+        <>
+          <Layout>
+            <Navbar />
+            <Content className="bg-transparent px-[48px] py-[80px]">
+              <div>{children}</div>
+            </Content>
+            <FooterPage />
+          </Layout>
+          <ScrollToTop />
+        </>
       ) : path.includes("/dashboard") ? (
         <Layout>
           <Content className="bg-transparent h-[100svh]">{children}</Content>

@@ -30,7 +30,7 @@ const ScrollToTop = () => {
     <Button
       className={
         isVisible
-          ? " buttonVisible bg-color-gold rounded-[50%] border-none outline-none"
+          ? " buttonVisible bg-normalBlack rounded-[50%] border-none outline-none"
           : "buttonInvisible"
       }
       style={{
@@ -41,7 +41,7 @@ const ScrollToTop = () => {
           : "flex",
       }}
       onClick={scrollToTop}
-      icon={<PiArrowFatLineUpFill size={20} color="#fff" />}
+      icon={<PiArrowFatLineUpFill size={20}  className="scroll-icon" color="#fff"/>}
     ></Button>
   );
 };

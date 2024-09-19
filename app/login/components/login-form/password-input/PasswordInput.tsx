@@ -10,7 +10,7 @@ function PasswordInput({ control, error }: InputPropsType) {
         name="password"
         control={control}
         render={({ field }) => (
-          <Input size="large" placeholder="Password *" {...field} />
+          <Input.Password size="large" placeholder="Password *" {...field} />
         )}
       />
       {error && (

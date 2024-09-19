@@ -1,3 +1,4 @@
+"use client";
 import BreadCrumb from "@/components/breadcrump/BreadCrump";
 import React from "react";
 import ContactForm from "./components/form-contact/ContactForm";

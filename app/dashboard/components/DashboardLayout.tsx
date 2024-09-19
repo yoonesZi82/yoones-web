@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { Layout } from "antd";
 import SiderDashboard from "./sider-dashboard/SiderDashboard";
 import HeaderDashboard from "./header-dashboard/HeaderDashboard";
@@ -18,6 +18,10 @@ const DashboardLayout: React.FC<DashboardLayoutPropsType> = ({
   tokenPayload,
 }) => {
   const { data: session } = useSession();
+  useEffect(() => {
+    const body = document.body;
+    body.style.overflowY = "hidden";
+  }, []);
   return (
     <>
       {session || tokenPayload ? (

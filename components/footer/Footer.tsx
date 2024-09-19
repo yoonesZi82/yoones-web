@@ -70,8 +70,8 @@ function FooterPage() {
             Perfect Team
           </p>
         </nav>
-        <form>
-          <h3 className="font-medium text-2xl footer-title">Newsletter</h3>
+        <nav>
+          <h3 className="font-medium text-2xl footer-title">Soctail Media</h3>
           <div className="flex justify-between items-center gap-6 mt-8">
             <Link
               href={"https://t.me/Yoones_Zi82"}
@@ -110,7 +110,7 @@ function FooterPage() {
               </div>
             </Link>
           </div>
-        </form>
+        </nav>
       </div>
 
       <div className="bg-normalBlack p-10 text-3xl text-meloWhite footer footer-center">
