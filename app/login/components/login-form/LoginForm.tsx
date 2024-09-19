@@ -139,7 +139,7 @@ const LoginForm: React.FC<LoginFormPropsType> = ({ tokenPayload }) => {
             )}
           </>
         ) : (
-          <div className="flex flex-col gap-3 border-normalBlack shadow-lg p-5 border-t-4 rounded-lg w-[35%]">
+          <div className="desktop:w-[35%] laptop:w-[35%] flex flex-col gap-3 border-normalBlack shadow-lg p-5 border-t-4 rounded-lg w-[90%] mobile:w-[90%] tablet:w-[60%]">
             <h1 className="my-4 font-medium text-normalBlack text-xl">
               {" "}
               Login Form{" "}
