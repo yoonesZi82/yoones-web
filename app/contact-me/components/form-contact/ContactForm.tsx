@@ -57,7 +57,6 @@ const ContactForm: React.FC = () => {
 
   const onSubmit: SubmitHandler<SendInfoSchemaType> = async (data) => {
     setLoading(true);
-
     axios
       .post("/api/messages/create", {
         text: data.text,
@@ -68,7 +67,7 @@ const ContactForm: React.FC = () => {
       .then((res) => {
         if (res.status === 201) {
           setError("");
-          messageApi.success("Your message has sent successfully.");
+          messageApi.success("Your message has sent successfully");
         }
       })
       .catch((err) => setError("An error message has occurred"))
